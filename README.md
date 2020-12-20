@@ -8,7 +8,7 @@
 * [彻底理解JavaScript闭包]()
 * [彻底理解this的指向]()
 ## CSS
-* [flex属性详解](articles/javascript/flex属性详解.md)
+* [flex属性详解](articles/css/flex属性详解.md)
 ## Vue
 ## React
 ## 构建
