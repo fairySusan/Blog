@@ -19,7 +19,7 @@ Boolean类型只有两个值：true、false 并且区分大小写，所有类型
 |Number|任何非0数，包括无穷大|0/NaN|
 |String| 任何非空字符串|''|
 |Object|任何对象|null|
-|undefined||undefined|
+|undefined|--|undefined|
 
 
 ## Number
