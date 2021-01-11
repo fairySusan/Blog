@@ -14,7 +14,7 @@ null是一个空对象的指针。null转成boolean值为false
 ## Boolean
 Boolean类型只有两个值：true、false 并且区分大小写，所有类型的值都可以转换成一个Boolean值。
 转换方法：隐式转换（参见后文有关隐式转换的内容）、Boolean()
-|数据类型｜转换为true的值｜转换为false的值｜
+|数据类型|转换为true的值|转换为false的值|
 |------ |------------|-------------|
 |Number|任何非0数，包括无穷大|0/NaN|
 |String| 任何非空字符串|''|
