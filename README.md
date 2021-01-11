@@ -7,6 +7,7 @@
 * [JavaScript的原型及原型链](articles/javascript/JavaScript的原型及原型链.md)
 * [彻底理解JavaScript闭包]()
 * [彻底理解this的指向]()
+* [JavaScript类型重要知识点总结](articles/javascript/JavaScript类型重要知识点总结.md)
 ## CSS
 * [flex属性详解](articles/javascript/flex属性详解.md)
 ## Vue
