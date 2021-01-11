@@ -9,7 +9,7 @@
 * [彻底理解this的指向]()
 * [JavaScript类型重要知识点总结](articles/javascript/JavaScript类型重要知识点总结.md)
 ## CSS
-* [flex属性详解](articles/javascript/flex属性详解.md)
+* [flex属性详解](articles/css/flex属性详解.md)
 ## Vue
 ## React
 ## 构建
