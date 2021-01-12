@@ -5,6 +5,7 @@ javascript每个<b>函数</b>都有一个prototype的属性，它是一个对象
 function Person {}
 var xiaoming = new Person()
 ```
+记住这句话：<b style="color: blue">对象都是通过函数来创建的</b>
 上面的例子就用Person构造函数生成了一个实例xiaoming（js没有对于构造函数特定的写法， 什么函数都可以作为构造函数，约定俗成构造函数函数名首字母大写。）
 我们在构造函数的prototype对象上添加两个属性
 ```
