@@ -12,6 +12,7 @@
 * [flex属性详解](articles/css/flex属性详解.md)
 ## Vue
 * [实现一个简单的vue框架](https://github.com/fairySusan/SimpleVue)
+* [实现一个简单的vuex](https://github.com/fairySusan/vuex-demo)
 ## React
 ## 构建 
 ## 工程化
