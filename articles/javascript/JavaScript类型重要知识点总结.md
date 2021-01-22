@@ -95,3 +95,9 @@ String()
 
 <b>要把某个值转换为字符串，可以使用加号操作符把它和一个""加在一起</b>
 
+### 基本类型值获取不存在的属性
+* `'this a string'.redColor // 'undefined'`
+* `true.redColor // 'undefined'`
+* `10.redColor // 报错`
+* `undefined.redColor // 报错`
+* `null.redColor // 报错`
