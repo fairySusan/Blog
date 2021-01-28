@@ -12,3 +12,10 @@ function foo() {
 }
 foo()
 ```
+function bar(color) {
+	console.log(color)
+	const nextColor = color === 'red' ? 'blue' : 'red'
+	promise.resolve(nextColor).then((r) => {
+		bar(r)
+	})
+}
