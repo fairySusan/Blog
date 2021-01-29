@@ -14,11 +14,11 @@ js引擎里有一个任务队列，专门用来存放，异步操作的回调函
 以上面最简单的例子：
 主线程先执行setTimeout，将其回调函数放入任务队列中，接着执行console.log(2)语句
 
-![事件循环机制图](/eventloop1.jpg)
+![事件循环机制图](articles/javascript/eventloop1.jpg)
 
 等到主线程空了，主线程再去从任务队列里获取回调函数执行。
 
-![事件循环机制图](/eventloop2.jpg)
+![事件循环机制图](articles/javascript/eventloop2.jpg)
 
 这就解释了下面的代码为什么依然是异步执行
 ```javascript
@@ -63,15 +63,15 @@ console.log(3)
 console.log(3)执行完毕后，主线程空了，然后去微任务队列里拿取`() => {console.log(2)}`来执行，输出2。主线程再去微任务队列里拿取任务，微任务已经为空。
 主线程就去宏任务队列拿回调函数，输出1
 
-![事件循环机制图](/eventloop3.jpg)
+![事件循环机制图](articles/javascript/eventloop3.jpg)
 
-![事件循环机制图](/eventloop4.jpg)
+![事件循环机制图](articles/javascript/eventloop4.jpg)
 
-![事件循环机制图](/eventloop5.jpg)
+![事件循环机制图](articles/javascript/eventloop5.jpg)
 
 
 ## 思考
-根据[JavaScript的执行机制](/JavaScript的执行机制.md)，函数的每一次调用都会生成一个`函数执行上下文`,然后入栈。
+根据[JavaScript的执行机制](articles/javascript/JavaScript的执行机制.md)，函数的每一次调用都会生成一个`函数执行上下文`,然后入栈。
 函数执行完，`函数执行上下文`出栈。当入栈的函数太多便会造成栈溢出。
 
 所以下面这段代码会造成栈溢出
