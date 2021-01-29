@@ -63,11 +63,11 @@ console.log(3)
 console.log(3)执行完毕后，主线程空了，然后去微任务队列里拿取`() => {console.log(2)}`来执行，输出2。主线程再去微任务队列里拿取任务，微任务已经为空。
 主线程就去宏任务队列拿回调函数，输出1
 
-![事件循环机制图](./eventloop3.jpg)
+![事件循环机制图](/articles/javascript/eventloop1.jpg/eventloop3.jpg)
 
-![事件循环机制图](./eventloop4.jpg)
+![事件循环机制图](/articles/javascript/eventloop4.jpg)
 
-![事件循环机制图](./eventloop5.jpg)
+![事件循环机制图](/articles/javascript/eventloop5.jpg)
 
 
 ## 思考
