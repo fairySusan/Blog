@@ -2,7 +2,7 @@
 
 ## JavaScript
 * [JavaScript的执行机制](articles/javascript/JavaScript的执行机制.md)
-* [深入理解JavaScript作用域]()
+* [深入理解JavaScript作用域](articles/javascript/深入理解JavaScript作用域.md)
 * [深入理解JavaScript执行上下文](articles/javascript/深入理解JavaScript执行上下文.md)
 * [JavaScript的原型及原型链](articles/javascript/JavaScript的原型及原型链.md)
 * [彻底理解JavaScript闭包]()
