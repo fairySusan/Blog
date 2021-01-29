@@ -13,11 +13,12 @@ js是怎么实现这种异步执行的呢？
 js引擎里有一个任务队列，专门用来存放，异步操作的回调函数。
 以上面最简单的例子：
 主线程先执行setTimeout，将其回调函数放入任务队列中，接着执行console.log(2)语句
-![事件循环机制图](./eventloop1.jpg)
+
+![事件循环机制图](articles/javascript/eventloop1.jpg)
 
 等到主线程空了，主线程再去从任务队列里获取回调函数执行。
 
-![事件循环机制图](./eventloop2.jpg)
+![事件循环机制图](articles/javascript/eventloop2.jpg)
 
 这就解释了下面的代码为什么依然是异步执行
 ```javascript
@@ -61,11 +62,12 @@ console.log(3)
 首先主线程先执行setTimeout，将其回调函数放入宏任务队列，再执行Promise.resolve将其回调函数放入微任务队列，最后直接执行console.log(3)输出3。
 console.log(3)执行完毕后，主线程空了，然后去微任务队列里拿取`() => {console.log(2)}`来执行，输出2。主线程再去微任务队列里拿取任务，微任务已经为空。
 主线程就去宏任务队列拿回调函数，输出1
-![事件循环机制图](./eventloop3.jpg)
 
-![事件循环机制图](./eventloop4.jpg)
+![事件循环机制图](articles/javascript/eventloop3.jpg)
 
-![事件循环机制图](./eventloop5.jpg)
+![事件循环机制图](articles/javascript/eventloop4.jpg)
+
+![事件循环机制图](articles/javascript/eventloop5.jpg)
 
 
 ## 思考
