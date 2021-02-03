@@ -36,6 +36,7 @@ var store = createStore({
   state: {},
   action: {},
   mutation: {},
+  modules: {}
 })
 ```
 vuex里的重要概念有state、action、mutation
