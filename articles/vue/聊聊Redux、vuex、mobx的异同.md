@@ -65,8 +65,3 @@ import store from './store.js'
 import Vue from 'vue'
 Vue.use(store)
 ```
-测试cherry-pick A
-测试cherry-pick B
-测试cherry-pick C
-测试cherry-pick D
-测试cherry-pick E
