@@ -69,3 +69,4 @@ Vue.use(store)
 测试cherry-pick B
 测试cherry-pick C
 测试cherry-pick D
+测试cherry-pick E
