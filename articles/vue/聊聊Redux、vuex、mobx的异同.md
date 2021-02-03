@@ -66,3 +66,4 @@ import Vue from 'vue'
 Vue.use(store)
 ```
 测试cherry-pick A
+测试cherry-pick B
