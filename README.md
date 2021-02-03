@@ -15,6 +15,7 @@
 * [实现一个简单的vue框架](https://github.com/fairySusan/SimpleVue)
 * [实现一个简单的vuex](https://github.com/fairySusan/vuex-demo)
 ## React
+* [聊一聊redux、vuex、mobx的异同](articles/vue/聊一聊Redux、vuex、mobx的异同.md)
 ## 移动端
 * [移动端H5坑位指南](articles/移动端/H5.md)
 ## 构建 
