@@ -17,6 +17,8 @@
 所以vue有一个全局store的概念：
 在项目的main.js里，实例化Vue的时候在data属性里定义需要的全局变量，在组件里通过this.$root.$data.shareData去访问,但是这不跟我们原始html，js的效果是一样的吗？
 依然不知道**1、在哪个时刻 2、在哪个位置 3、进行里怎样的修改**
+
+main.js
 ```javascript
 new Vue({
   data: {
@@ -24,15 +26,17 @@ new Vue({
       counter: 0
     }
   }
-})
+}).$mount('#app')
 ```
-所以我们需要一个工具，1、要记录下我们每一次对变量的更改，2、并且约束不能随意更改变量，更改行为要进行类
+所以我们需要一个工具:
+* 1、要记录下我们每一次对变量的更改
+* 2、并且约束不能随意更改变量，更改行为要进行命名
+* 3、在MVVM框架流行的今天，当然也要更改变量自动触发绑定的视图的更新
 
 ### Vuex
-vuex提供了一个createStore函数来创建一个全局的store对象
 ```javascript
-import { createStore } from 'vuex'
-var store = createStore({
+import Vuex from 'vuex'
+export const store = new Vuex.store({
   state: {},
   action: {},
   mutation: {},
@@ -46,8 +50,10 @@ vuex里的重要概念有state、action、mutation
 
 🌰
 ```javascript
-import { createStore } from 'vuex'
-export default store = createStore({
+import Vuex from 'vuex'
+import Vue from 'vue'
+Vue.use(Vuex)
+export const store = new Vuex.store({
   state: {
     counter: 0
   },
@@ -63,10 +69,14 @@ export default store = createStore({
 })
 ```
 在store挂载在Vue实例上,以便在组件里可以this.$store.state.counter
+
+main.js
 ```javascript
-import store from './store.js'
+import { store } from './store.js'
 import Vue from 'vue'
-Vue.use(store)
+new Vue({
+  store
+}).$mount('#app')
 ```
 组件里面
 ```javascript
@@ -82,6 +92,10 @@ mounted () {
 ### redux
 redux里的概念有：state、action、reducer
 前文说了action代表了你要对state作出什么样的改变
+
+对比vuex，redux所有对state的改变的逻辑都在reducer里面,用switch case来匹配要对state做何种改变
+而action就是{type: 'addCounter'}这样的一个对象而已。
+
 counter.js
 ```typescript
 // reducer
@@ -94,8 +108,8 @@ export function counter(state = 0, action: {type: string} | {type: string; num: 
   }
 }
 ```
-对比vuex，redux所有对state的改变的逻辑都在reducer里面,用switch case来匹配要对state做何种改变
-而action就是{type: 'addCounter'}这样的一个对象而已。
+
+跟vuex一样，redux也有一个createStore函数。用来注册store
 
 store.js
 ```javascript
@@ -104,7 +118,6 @@ import {counter} from 'counter.js'
 
 export var store = createStore(counter)
 ```
-跟vuex一样，redux也有一个createStore函数。用来注册store
 
 组件里
 ```javascript
@@ -116,7 +129,6 @@ store.getState().counter
 store.dispatch({type: 'addCounter'})
 // 如果需要传参数
 store.dispatch({type: 'multiplyCounter', num: 3})
-
 // 一般会把action写成一个函数，返回一个带type属性的对象, action.js如下
 store.dispatch(multiplyCounter(3))
 ```
