@@ -54,14 +54,75 @@ export default store = createStore({
   action: {
     addCounter: function(state) {
       state.conuter++
+    },
+    subCounter: function(state) {
+      state.counter--
     }
   },
   mutation: {},
 })
 ```
-在store挂载在Vue实例上,以便在组件里可以this.store.state.counter
+在store挂载在Vue实例上,以便在组件里可以this.$store.state.counter
 ```javascript
 import store from './store.js'
 import Vue from 'vue'
 Vue.use(store)
+```
+组件里面
+```javascript
+mounted () {
+  // 读取state
+  this.$store.state.counter
+  // 改变state
+  this.$store.dispatch('addCounter')
+}
+```
+实现原理：[简单实现一个vuex](https://github.com/fairySusan/vuex-demo)
+
+### redux
+redux里的概念有：state、action、reducer
+前文说了action代表了你要对state作出什么样的改变
+counter.js
+```typescript
+// reducer
+export function counter(state = 0, action: {type: string} | {type: string; num: number}) {
+  switch(action.type) {
+    case 'addCounter':
+      return state++
+    case 'multiplyCounter':
+      return state * num
+  }
+}
+```
+对比vuex，redux所有对state的改变的逻辑都在reducer里面,用switch case来匹配要对state做何种改变
+而action就是{type: 'addCounter'}这样的一个对象而已。
+
+store.js
+```javascript
+import {createStore} from 'redux'
+import {counter} from 'counter.js'
+
+export var store = createStore(counter)
+```
+跟vuex一样，redux也有一个createStore函数。用来注册store
+
+组件里
+```javascript
+import {store} from './store.js'
+import {multiplyCounter} from './action.js'
+// 读取state
+store.getState().counter
+// 改变state
+store.dispatch({type: 'addCounter'})
+// 如果需要传参数
+store.dispatch({type: 'multiplyCounter', num: 3})
+
+// 一般会把action写成一个函数，返回一个带type属性的对象, action.js如下
+store.dispatch(multiplyCounter(3))
+```
+action.js
+```javascript
+export const multiplyCounter = (num) => { 
+  return {type: 'multiplyCounter', num}
+}
 ```
