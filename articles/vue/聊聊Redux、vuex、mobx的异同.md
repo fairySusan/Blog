@@ -1,4 +1,4 @@
-### 状态管理器
+## 状态管理器
 -------------------------
 回顾我们初学html，javascript的时候，没有vue，react这些框架，最原始的写法在html里script标签引入js文件
 ```html
@@ -34,7 +34,7 @@ new Vue({
 * 2、并且约束不能随意更改变量，更改行为要进行命名
 * 3、在MVVM框架流行的今天，当然也要更改变量自动触发绑定的视图的更新
 
-### Vuex
+## Vuex
 -------------------------
 ```javascript
 import Vuex from 'vuex'
@@ -91,7 +91,7 @@ mounted () {
 ```
 实现原理：[简单实现一个vuex](https://github.com/fairySusan/vuex-demo)
 
-### redux
+## Redux
 -------------------------
 redux里的概念有：state、action、reducer
 前文说了action代表了你要对state作出什么样的改变
@@ -141,6 +141,9 @@ export const multiplyCounter = (num) => {
   return {type: 'multiplyCounter', num}
 }
 ```
-### react-redux
+## react-redux
 vuex是专门给vue写的一个状态管理工具，跟vue是官配。而redux跟react没有任何关系，redux可以在任何框架的项目中使用，甚至vue。
 react-redux就是连接redux和react的一个工具，便于可以在react组件中props.counter、props.dispatch()...
+
+
+## mobx
