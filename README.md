@@ -11,6 +11,8 @@
 * [JavaScript类型重要知识点总结](articles/javascript/JavaScript类型重要知识点总结.md)
 ## CSS
 * [flex属性详解](articles/css/flex属性详解.md)
+* [深入学习css的display属性](articles/css/深入学习css的display属性.md)
+* [彻底学习css的块级格式上下文](articles/css/彻底学习css的块级格式上下文.md)
 ## Vue
 * [实现一个简单的vue框架](https://github.com/fairySusan/SimpleVue)
 * [实现一个简单的vuex](https://github.com/fairySusan/vuex-demo)

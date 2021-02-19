@@ -6,7 +6,7 @@
 * css的width属性默认是auto，意味着块状元素默认宽度是父元素宽度的100%
 
 内联元素：
-* 内联元素不能设置css的width属性，可以设置height属性
+* 内联元素不能设置css的width、height属性
 * 内联元素与内联元素并排的排列显示
 
 ### width 和 height
