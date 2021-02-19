@@ -11,7 +11,7 @@
 
 这里我们只来解释一下<display-outside> <display-inside> <display-legacy>这三种的取值
 
-#### <display-outside>
+#### display-outside
 这些关键字指定了元素的**外部显示类型**，实际上就是其在**流式布局**中的角色（即在流式布局中的表现）。
 
 取值：
@@ -19,7 +19,7 @@
 * inline 行间元素
 * run-in (大多数浏览器不支持，这里不讨论)
 
-#### <display-inside>
+#### display-inside
 这些关键字指定了元素的**内部显示类型**，它们定义了该元素**内部内容**的布局方式（假定该元素为非替换元素 non-replaced element）。
 
 取值：
@@ -42,7 +42,8 @@
 
 所以当我们给一个div设置`display: flex`时，它在文档流中依然是块状元素的表现，但是div里面的子元素会变成弹性盒子的布局方式
 
-### <display-legacy>
+#### display-legacy
+
 前文有说：因为CSS 2 对于 display 属性使用单关键字语法，也就是只能有一个值。所以就有了一些特殊的值来指定，一些特殊的情况
 * inline-block
   这个还是比较常用的，它相当于 `display: inline flow-root`，指定这个元素的**外部显示类型**是行间元素，而flow-root会让该元素生成一个**块元素框**
