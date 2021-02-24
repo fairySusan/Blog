@@ -1,14 +1,14 @@
 javascript不是面向对象的语言，那么是怎么实现继承的呢？javascript则依靠原型和原型链来实现继承。
 ### prototype
 javascript每个<b>函数</b>都有一个prototype的属性，它是一个对象
-```
+```javascript
 function Person {}
 var xiaoming = new Person()
 ```
 记住这句话：<b>对象都是通过函数来创建的</b>。
 上面的例子就用Person构造函数生成了一个实例xiaoming（js没有对于构造函数特定的写法， 什么函数都可以作为构造函数，约定俗成构造函数函数名首字母大写。）
 我们在构造函数的prototype对象上添加两个属性
-```
+```javascript
 Person.prototype.sex = 'boy'
 console.log(Person.prototype) // 可打印出来看看prototype里面有什么
 console.log(xiaoming.sex) // 'boy'
@@ -17,7 +17,7 @@ console.log(xiaoming.sex) // 'boy'
 每个对象的__proto__属性都是指向创建自己的构造函数的prototype对象，上面的例子`xiaoming.__proto__ `指向`Person.prototype`,所以`xiaoming.__proto__.sex`可以获取到（__proto__可以省略不写，即为xiaoming.sex）
 
 如果给xiaoming自己添加了一个属性sex，读取的时候会读取自身的sex属性
-```
+```javascript
 xiaoming.sex = 'girl' // 注意，执行这一步只是给xiaoming自己添加了一个sex属性，并没有更改Person.prototype.sex属性哦
 console.log(xiaoming.sex) // 'girl'
 console.log(Person.prototype.sex) // 'boy'
@@ -27,7 +27,7 @@ console.log(Person.prototype.sex) // 'boy'
 
 ### 原型链
 现在我们让一个函数来继承Person
-```
+```javascript
 function Man () {}
 Man.prototype = new Person()
 Man.prototype.constructor = Man
