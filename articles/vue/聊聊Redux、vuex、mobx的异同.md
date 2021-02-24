@@ -143,7 +143,9 @@ export const multiplyCounter = (num) => {
 ```
 ## react-redux
 vuex是专门给vue写的一个状态管理工具，跟vue是官配。而redux跟react没有任何关系，redux可以在任何框架的项目中使用，甚至vue。
-react-redux就是连接redux和react的一个工具，便于可以在react组件中props.counter、props.dispatch()...
+react-redux就是连接redux和react的一个工具，便于可以在react组件中将store.counter映射为this.props.counter以及dispatch函数也映射到props里去
+
+实现原理：[简单实现一个redux、react-redux](https://github.com/fairySusan/redux-demo)
 
 
 ## mobx
