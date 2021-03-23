@@ -65,6 +65,7 @@ parseFloat()函数
 * parseFloat('22.5') // 22.5
 * parseFloat('22.5.6') //22.5
 * parseFloat('0908.1') // 908.1
+* parseFloat(12.0) // 12
 
 ### String
 String类型表示由零个或多个16位unicode字符组成的字符序列，称为字符串
