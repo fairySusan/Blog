@@ -67,6 +67,8 @@ parseFloat()函数
 * parseFloat('0908.1') // 908.1
 * parseFloat(12.0) // 12
 
+toFixed() 函数 将数字**四舍五入**为指定小数位数的字符串
+
 ### String
 String类型表示由零个或多个16位unicode字符组成的字符序列，称为字符串
 String数据类型包含一些特殊的字符字面量：
