@@ -37,3 +37,43 @@
   background-clip: content-box; 
 }
 ```
+
+#### 绘制渐变色字体
+```html
+<span>Hello World</span>
+```
+
+```css
+span {
+  font-size: 100px;
+  background-image: linear-gradient(to bottom, orange, blue);
+  background-clip: text; // 重点
+ -webkit-text-fill-color:transparent // 重点
+}
+```
+
+#### 绘制流光溢彩的颜色流动效果
+```html
+<span>Hello World</span>
+```
+
+```css
+span {
+  font-size: 100px;
+  background-image: -webkit-linear-gradient(bottom, #3498db, #f47920 10%, #d71345 20%, #f7acbc 30%, #ffd400 40%, #3498db 50%, #f47920 60%, #d71345 70%, #f7acbc 80%, #ffd400 90%, #3498db);
+  background-clip: text; // 重点
+ -webkit-text-fill-color:transparent // 重点
+  animation: textColorAnimat 2s linear infinite;
+  background-size: 100% 200%;
+}
+@keyframes textColorAnimat {
+  0% {
+    background-position: 0 0; 
+  }
+  100% {
+    background-position: 0 -100%;
+  }
+}
+
+```
+
