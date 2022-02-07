@@ -27,5 +27,10 @@ flex-basis: 0; 指定元素尺寸由内容撑起来。
 
 大多数情况下，开发者只需要将flex设置为以下值之一即可：auto、initial、none、单值写法
 
+### flex|块状化|包裹性
+* 设置了`display:flex`的元素，会块状化，宽度跟父元素宽度一致,不具有包裹性
+* 设置了`display:flex; flex-direction: row;`的元素的子元素会块状化，具有包裹性
+* 设置了`display:flex; flex-direction: column;`的元素的子元素会块状化，宽度跟父元素宽度一致,不具有包裹性
+
 ### 思考 flex: 1填满剩余空间的原理？
 ### 思考 flex: 1填满剩余空间的原理，但是需要设置height: 0; 元素才有高度？
