@@ -1,1 +1,1 @@
-#### Hash 和 History 路由的区别和优缺点？
+- Hash 和 History 路由的区别和优缺点？
