@@ -91,3 +91,35 @@ function foo() {
 }
 foo()
 ```
+
+### 实现一个事件队列
+实现像多次触发setState()，但是只会出发一次更新的事件更新队列。
+解决多次连续的触发，但是只在最后一次全部更新。
+```js
+const taskQueue = new Set() // 用Set是需要用到它的自动去重的功能
+function defer(fn) {
+	Promise.resolve().then(() => {
+		fn()
+	})
+}
+/*
+* 才开始的时候，taskQueue.size === 0，所以执行defer(),但是传给defer的回调函数会在主进程清空后再执行，
+* 也就是执行完taskQueue.add(fn)后再执行
+*/
+function enqueue(fn) {
+	if (taskQueue.size === 0) {
+		defer(() => {
+			taskQueue.forEach(task => task());
+			taskQueue.clear()
+		})
+	}
+	taskQueue.add(fn)
+}
+
+enqueue(() => {
+	console.log(1)
+})
+enqueue(() => {
+	console.log(2)
+})
+```
