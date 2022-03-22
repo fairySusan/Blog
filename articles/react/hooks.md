@@ -11,4 +11,4 @@ Hook使用了javascript的闭包机制
 useEffect 不给第二个参数：挂载的时候、每次视图更新后都会调用
 useEffect 给一个空数组：只会在挂载的时候调用
 useEffect 给一个非空数组：挂载的时候和订阅的state更新的时候
-组件卸载的时候调用useEffect返回的函数，清除副作用
+组件卸载的时候调用依赖数组为空的useEffect返回的函数，清除副作用
