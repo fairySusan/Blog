@@ -14,7 +14,7 @@ p.then(() => {
   return 'return value' // 或者 return new Promise()
 }, () => {
   /*异步失败后的回调函数，也就是reject函数*/
-})
+}).then(() => {})
 ```
 
 ```javascript
@@ -47,7 +47,7 @@ class GPromise {
                 setTimeout(() => {
                     const returnValue = onfulfilled(this._promiseValue);
                     if (returnValue instanceof GPromise) {
-                        returnValue.then(resolve, reject)
+                        returnValue.then(resolve, reject) 
                     } else {
                         resolve(returnValue)
                     }
@@ -110,3 +110,43 @@ GPromise.PENDING = 'pending';
 GPromise.FULFILLED = 'fulfilled';
 GPromise.REJECTED = 'rejected';
 ```
+### Promise的实现难点、知识点总结
+
+* 这里按照我们写then方法的逻辑，应该是这么来写
+  ```js
+    if (this._promiseStatus === GPromise.FULFILLED) {
+      setTimeout(() => {
+        const returnValue = onfulfilled(this._promiseValue);
+        if (returnValue instanceof GPromise) {
+          return returnValue
+        } else {
+          return new GPromise((resolve, reject) => {
+            resolve(returnValue)
+          })
+        }
+      }, 0)
+    }
+  ```
+  先去执行onfulfilled方法，判断其返回值，如果返回值是一个GPromise实例那么直接返回，如果不是那么实例化一个返回。
+  但是这样的问题在于，then方法里是异步执行的代码，then().then(),前一个then方法的回调还没有执行返回值没有，调后面的then的时候，就会报错。
+  所以我们首先就要在then方法里返回一个GPromise实例。
+* 如何让promiseIns2去改变promiseIns1的状态，promiseIns2.then(resolve, reject)
+  ```js
+  let resolve1 = null
+  const promise1 = new Promise((resolve, reject) => {
+    resolve1 = resolve
+  })
+  const prosmise2 = new Promise((resolve, reject) => {resolve()})
+  prosmise2.then(resolve1)
+  // 或者, 外层promise的状态需要根据内层的promise的状态来
+  return new Promise((resolve, reject) => {
+    new Promise((resolve1, reject1) => {
+      resolve()
+    }).then(() => {
+      resolve()
+    }).catch(() => {
+      reject()
+    })
+  })
+  ```
+                        
