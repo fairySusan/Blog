@@ -38,9 +38,11 @@ console.log(2)
 * setImmediate
 
 微任务：
-* Promise.then
+* Promise.then(() => {})
 * MutaionObserver（node）
-* process.nextTick （node）
+* process.nextTick() （node）
+
+DOM事件属于啥？？？
 
 微任务和宏任务的异步执行是有先后顺序的，微任务的回调函数会放入微任务队列，宏任务的回调函数会放入宏任务队列。
 执行顺序：主线程-> 微任务队列 -> 宏任务队列。

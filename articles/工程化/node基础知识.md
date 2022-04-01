@@ -54,5 +54,56 @@
     以上在终端中询问用户名，当输入了文本并且按下了回车，就会发送"你好，xxx"
     常见的封装好的包有`inquirer`,它可以询问多项选择，展示单选按钮，确认等
 
-### 
+### 使用Node.js读取文件
+  * `fs.readFile()` 异步
+  ```JS
+  const fs = require('fs)
+  fs.readFile('/User/joe/test.txt', 'utf8', (err, data) => {
+    if (err) {
+      console.log(err)
+      return
+    }
+    console.log(data)
+  })
+  ```
+  * `fs.readFileSync()` 同步
+  ```js
+  const fs = require('fs);
+  const res = fs.readFileSync('/User/joe/test.txt', 'utf8')
+  ```
+
+### 使用Node.js写入文件
+  * `fs.writeFile()` 异步
+    ```js
+    const fs = require('fs')
+    const content = 'something'
+    fs.writeFile('User/joe/test.txt', content, err => {
+      if(err) {
+        console.log(err)
+        return
+      }
+      // 文件写入成功
+    })
+    ```
+  * `fs.writeFileSync()` 同步， 默认下会直接替换文件的内容
+    ```js
+    const fs = require('fs')
+    const content = '一些内容'
+
+    try {
+      const data = fs.writeFileSync('/Users/joe/test.txt', content)
+      //文件写入成功。
+    } catch (err) {
+      console.error(err)
+    }
+    ```
+    - `fs.writeFileSync(path, content, {flag: 'a+'}, err => {})`
+    - `flag`有`r+`打开文件用于读写
+    - `flag`有`w+`打开文件用于读写，将流定位到文件的开头。如果文件不存在就创建文件
+    - `a`打开文件用于写入，将流定位到文件的末尾。如果文件不存在则创建文件
+    - `a+` 打开文件用于读写，将流定位到文件的末尾。如果文件不存在则创建文件。
+  * 将内容追加到文件的末尾的便捷方法是`fs.appendFile()`、`fs.appendFileSync()`
+
+### Node.js路径模块
+  * 
 
